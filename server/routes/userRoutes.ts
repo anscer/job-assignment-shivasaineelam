@@ -11,7 +11,13 @@ router.post("/",async(req:Request,res:Response)=>{
    } catch (error) {
     res.status(401).send(error)
    }
-    
-
+});
+router.get("/",async(req:Request,res:Response)=>{
+    try{
+        const data=await User.find();
+        res.send(data);
+    }catch{
+        res.send("error occured")
+    }
 })
 export default router;
